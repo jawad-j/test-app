@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav'
 import "./style.css"
-export default class test extends Component {
+export default class list extends Component {
     render() {
         return (
             <>
@@ -17,41 +17,84 @@ export default class test extends Component {
                         <Nav.Link href="#contacts">Contacts</Nav.Link>
                     </Nav>
                 </Navbar>
-                <div className="header">
-                    <h1>Create Blog</h1>
-                    <h3>Enter Details</h3>
-                </div>
-                <div className="ctr">
-                    <div className="container">
-                        <form>
-                            <div className="form-group">
-                                <label htmlFor="usr">Title:</label>
-                                <input type="text" className="form-control"></input>
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="deprt">Content:</label>
-                                <input type="text" className="form-control"></input>
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="usr">Tags:</label>
-                                <select className="form-control">
-                                    <option value="History">History</option>
-                                    <option value="Entertainments">Entertainments</option>
-                                    <option value="International Affairs">International Affairs</option>
-                                </select>
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="usr">Upload Image:</label>
-                                <input type="file" className="form-control"></input>
-                            </div>
-                        </form>
+    <h1 class="hdr">Blog's</h1>
+    <div className="container">
+    <div className="row">
+  <div className="col-lg-4 col-md-12 mb-4 mb-lg-0">
+    <figure><a className="pstn" href="">TAGS</a>
+    <img
+      src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg"
+      className="w-100 shadow-1-strong rounded mb-4"
+      alt=""
+    />
+    <figcaption>Many times, readers will get distracted</figcaption>
+    </figure>
+    <figure><a className="pstn" href="">TAGS</a>
+    <img
+      src="https://mdbootstrap.com/img/Photos/Vertical/mountain1.jpg"
+      className="w-100 shadow-1-strong rounded mb-4"
+      alt=""
+    />
+    <figcaption>Many times, readers will get distracted</figcaption>
+    </figure>
+  </div>
+  <div className="col-lg-4 mb-4 mb-lg-0">
+  <figure><a className="pstn" href="">TAGS</a>
+      <img
+      src="https://mdbootstrap.com/img/Photos/Vertical/mountain2.jpg"
+      className="w-100 shadow-1-strong rounded mb-4"
+      alt=""
+    />
+    <figcaption>Many times, readers will get distracted</figcaption></figure>
+<figure><a className="pstn" href="">TAGS</a>
+    <img
+      src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg"
+      className="w-100 shadow-1-strong rounded mb-4"
+      alt=""
+    /><figcaption>Many times, readers will get distracted</figcaption></figure>
+  </div>
 
-                        <div className="btn">
-                            <button type="submit" className="btn btn-primary">Create</button>
-                        </div>
-                    </div>
-                </div>
+  <div className="col-lg-4 mb-4 mb-lg-0">
+   <figure><a className="pstn" href="">TAGS</a>
+    <img
+      src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg"
+      className="w-100 shadow-1-strong rounded mb-4"
+      alt=""
+    /><figcaption>Many times, readers will get distracted</figcaption></figure>
+<figure><a className="pstn" href="">TAGS</a>
+    <img
+      src="https://mdbootstrap.com/img/Photos/Vertical/mountain3.jpg"
+      className="w-100 shadow-1-strong rounded mb-4"
+      alt=""
+    /><figcaption>Many times, readers will get distracted</figcaption></figure>
+  </div>
+</div>
 
+
+
+
+
+
+{/* <div className="row">
+ <div className="col-lg-4 col-md-12 mb-4">
+<figure>
+  <img src="http://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(58).jpg" class="img-fluid mb-4" alt=""/>
+  <figcaption>Hey</figcaption>
+  </figure>
+</div>
+<div className="col-lg-4 col-md-6 mb-4">
+<figure>
+  <img src="http://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(58).jpg" class="img-fluid mb-4" alt=""/>
+  <figcaption>Hey</figcaption>
+  </figure>
+<figure>
+  <img src="http://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(58).jpg" class="img-fluid mb-4" alt=""/>
+  <figcaption>Hey</figcaption>
+  </figure>
+</div>
+  </div> */}
+  </div>
+<div>
                 <footer className="bg-dark text-center text-white">
                     <section className="section">
                         <div className="row">
@@ -114,7 +157,7 @@ export default class test extends Component {
                     </div>
                 </footer>
 
-
+</div>
 
             </>
         )

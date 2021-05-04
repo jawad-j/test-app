@@ -1,0 +1,28 @@
+  figure {
+    border: 1px #cccccc solid;
+    padding: 4px;
+ }
+  figcaption {
+      color: blanchedalmond;
+    font-style: italic;
+    padding: 4px;
+    margin-top: -50px;
+    cursor: pointer;
+  }
+  figcaption:hover{
+      color: brown;
+  }
+  .hdr{text-align: center;}
+.pstn{
+    color: rgb(94, 7, 7);
+    position: absolute;
+    border: none;
+    background-color: inherit;
+    padding: 4px 8px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+}
+.pstn:hover{
+    color: darkgray;
+}

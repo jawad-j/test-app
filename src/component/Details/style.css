@@ -1,0 +1,14 @@
+.pstn{
+    color: rgb(94, 7, 7);
+    position: absolute;
+    border: none;
+    background-color: inherit;
+    padding: 4px 8px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+}
+.pstn:hover{
+    color: darkgray;
+}
+.rw{margin-left: 5px;}

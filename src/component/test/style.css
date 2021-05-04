@@ -1,0 +1,19 @@
+.header{
+    display: inline;
+    text-align: center;
+}
+.ctr{
+text-align: left;
+padding-right: 220px;
+padding-left: 220px;
+}
+.btn{
+    text-align: center;
+    padding-bottom: 10px;
+}
+.subscribe{
+    padding-top: 25px;
+}
+.section{
+    padding-top: 15px;
+}
