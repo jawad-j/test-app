@@ -18,8 +18,8 @@ export default class test extends Component {
     cntnt=(c)=>{
         this.setState({content: c})
     };
-    pic=(i)=>{
-        this.setState({image: i})
+    pic=(p)=>{
+        this.setState({image: p})
     }
     render() {
         return (
@@ -59,12 +59,12 @@ export default class test extends Component {
                             </div>
                             <div className="form-group">
                                 <label htmlFor="usr">Upload Image:</label>
-                                <input type="file" className="form-control" onChange={(i)=>this.pic(i)} ></input>
+                                <input type="file" className="form-control" onChange={(p)=>this.pic(p)} ></input>
                             </div>
                         </form>
 
                         <div className="btn">
-                            <button type="submit" className="btn btn-primary">Create</button>
+                            <button type="submit" className="btn btn-primary" onClick={(s)=>this.getSnapshotBeforeUpdate(s)}>Create</button>
                         </div>
                     </div>
                 </div>
