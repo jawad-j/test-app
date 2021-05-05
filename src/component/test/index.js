@@ -4,6 +4,23 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav'
 import "./style.css"
 export default class test extends Component {
+    constructor(props){
+        super(props);
+        this.state={
+            title:'',
+            content:'',
+            image:''
+        }
+    }
+    titl=(e)=>{
+        this.setState({title: e})
+    };
+    cntnt=(c)=>{
+        this.setState({content: c})
+    };
+    pic=(i)=>{
+        this.setState({image: i})
+    }
     render() {
         return (
             <>
@@ -25,12 +42,12 @@ export default class test extends Component {
                     <div className="container">
                         <form>
                             <div className="form-group">
-                                <label htmlFor="usr">Title:</label>
-                                <input type="text" className="form-control"></input>
+                                <label htmlFor="usr">Title</label>
+                                <input type="text" className="form-control"  onChange={(e)=>this.titl(e)}></input>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="deprt">Content:</label>
-                                <input type="text" className="form-control"></input>
+                                <input type="text" className="form-control"  onChange={(c)=>this.cntnt(c)}></input>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="usr">Tags:</label>
@@ -42,7 +59,7 @@ export default class test extends Component {
                             </div>
                             <div className="form-group">
                                 <label htmlFor="usr">Upload Image:</label>
-                                <input type="file" className="form-control"></input>
+                                <input type="file" className="form-control" onChange={(i)=>this.pic(i)} ></input>
                             </div>
                         </form>
 

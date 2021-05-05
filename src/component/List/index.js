@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav'
 import "./style.css"
+import { blogDetail } from '../constant';
 export default class list extends Component {
     render() {
         return (
@@ -17,19 +18,31 @@ export default class list extends Component {
                         <Nav.Link href="#contacts">Contacts</Nav.Link>
                     </Nav>
                 </Navbar>
-    <h1 class="hdr">Blog's</h1>
+     <div>{blogDetail.map((d,index)=>{
+         return(
+             <div>
+<h1 class="hdr">Blog's</h1>
     <div className="container">
     <div className="row">
   <div className="col-lg-4 col-md-12 mb-4 mb-lg-0">
-    <figure><a className="pstn" href="">TAGS</a>
+    <figure><a className="pstn" href="">{d.tags}</a>
     <img
-      src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg"
+      src={d.img}
       className="w-100 shadow-1-strong rounded mb-4"
       alt=""
     />
     <figcaption>Many times, readers will get distracted</figcaption>
     </figure>
-    <figure><a className="pstn" href="">TAGS</a>
+    </div>
+    </div>
+</div>
+             </div>
+         )
+     })}
+                    
+    
+</div>
+    {/* <figure><a className="pstn" href="">TAGS</a>
     <img
       src="https://mdbootstrap.com/img/Photos/Vertical/mountain1.jpg"
       className="w-100 shadow-1-strong rounded mb-4"
@@ -66,9 +79,7 @@ export default class list extends Component {
       src="https://mdbootstrap.com/img/Photos/Vertical/mountain3.jpg"
       className="w-100 shadow-1-strong rounded mb-4"
       alt=""
-    /><figcaption>Many times, readers will get distracted</figcaption></figure>
-  </div>
-</div>
+    /><figcaption>Many times, readers will get distracted</figcaption></figure> */}
 
 
 
@@ -93,7 +104,7 @@ export default class list extends Component {
   </figure>
 </div>
   </div> */}
-  </div>
+ 
 <div>
                 <footer className="bg-dark text-center text-white">
                     <section className="section">
