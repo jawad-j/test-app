@@ -3,24 +3,41 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav'
 import "./style.css"
+import axios from 'axios'
+
 export default class test extends Component {
     constructor(props){
         super(props);
         this.state={
             title:'',
             content:'',
-            image:''
+            image:'',
         }
     }
-    titl=(e)=>{
-        this.setState({title: e})
+    handleTitle=(e)=>{
+        this.setState({title: e.target.value})
+        console.log("title", this.title)
     };
-    cntnt=(c)=>{
-        this.setState({content: c})
+    handleContent=(c)=>{
+        this.setState({content: c.target.value})
+        console.log("content",this.content)
     };
-    pic=(p)=>{
-        this.setState({image: p})
-    }
+    handleImage=(p)=>{
+        this.setState({image: p.target.value})
+        console.log("image",this.image)
+    };
+    handleSubmit (s) {
+        s.preventDefault();
+        const newBlog = {
+          title: this.state.title,
+          content: this.state.content,
+          image: this.state.image
+        }
+        console.log(newBlog)
+        console.log(this.state.image)
+        axios.post('http://localhost:3001/testing', newBlog)
+      }
+
     render() {
         return (
             <>
@@ -43,11 +60,11 @@ export default class test extends Component {
                         <form>
                             <div className="form-group">
                                 <label htmlFor="usr">Title</label>
-                                <input type="text" className="form-control"  onChange={(e)=>this.titl(e)}></input>
+                                <input type="text" className="form-control"  onChange={(e)=>this.handleTitle(e)}></input>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="deprt">Content:</label>
-                                <input type="text" className="form-control"  onChange={(c)=>this.cntnt(c)}></input>
+                                <input type="text" className="form-control"  onChange={(c)=>this.handleContent(c)}></input>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="usr">Tags:</label>
@@ -59,17 +76,18 @@ export default class test extends Component {
                             </div>
                             <div className="form-group">
                                 <label htmlFor="usr">Upload Image:</label>
-                                <input type="file" className="form-control" onChange={(p)=>this.pic(p)} ></input>
+                                <input type="file" className="form-control" onChange={(p)=>this.handleImage(p)} ></input>
                             </div>
                         </form>
 
                         <div className="btn">
-                            <button type="submit" className="btn btn-primary" onClick={(s)=>this.getSnapshotBeforeUpdate(s)}>Create</button>
+                            <button type="submit" className="btn btn-primary" onClick={(s)=>this.handleSubmit(s)}>Create</button>
                         </div>
                     </div>
                 </div>
 
                 <footer className="bg-dark text-center text-white">
+                    <div className="fix">
                     <section className="section">
                         <div className="row">
                             <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
@@ -128,6 +146,7 @@ export default class test extends Component {
                     <div class="text-center p-3">
                         © 2021 Copyright:
     <a class="text-white">jawad@ventechstudio.com</a>
+    </div>
                     </div>
                 </footer>
 

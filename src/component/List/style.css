@@ -26,3 +26,29 @@
 .pstn:hover{
     color: darkgray;
 }
+
+.column {
+  float: left;
+  width: 25%;
+  padding: 10px;
+  width: 100%;
+}
+/* Style the images inside the grid */
+.column img {
+  opacity: 0.8; 
+  cursor: pointer; 
+  
+}
+
+.column img:hover {
+  opacity: 1;
+}
+.row:after {
+  display: table;
+  clear: both;
+}
+
+/* The expanding image container */
+.container {
+  position: relative;
+}

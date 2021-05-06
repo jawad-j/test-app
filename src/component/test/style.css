@@ -17,3 +17,6 @@ padding-left: 220px;
 .section{
     padding-top: 15px;
 }
+.fix{
+    position: static;
+}

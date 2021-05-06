@@ -4,6 +4,7 @@ import Test from './component/test';
 import Details from './component/Details';
 import List from './component/List';
 export default class App extends Component {
+
   render() {
     return (
          <>
