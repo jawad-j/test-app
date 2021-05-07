@@ -4,6 +4,12 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav'
 import "./style.css"
 import axios from 'axios'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 
 export default class test extends Component {
     constructor(props){
@@ -23,8 +29,11 @@ export default class test extends Component {
         console.log("content",this.content)
     };
     handleImage=(p)=>{
-        this.setState({image: p.target.value})
+     const image=p.target.files[0];
         console.log("image",this.image)
+    const reader = new FileReader();
+    reader.readAsDataURL(image)
+    reader.onload = () => this.setState({ image: reader.result })
     };
     handleSubmit (s) {
         s.preventDefault();
@@ -43,7 +52,8 @@ export default class test extends Component {
             <>
                 <Navbar bg="dark" variant="dark">
                     <Nav className="mr-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
+                        <Nav.Link >
+                            <Link to="/list">Home</Link></Nav.Link>
                         <Nav.Link href="#history">History</Nav.Link>
                         <Nav.Link href="#entertainment">Entertainment</Nav.Link>
                         <Nav.Link href="#international affairs">International Affairs</Nav.Link>

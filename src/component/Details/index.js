@@ -7,17 +7,50 @@ export default class details extends Component {
     render() {
         return (
             <>
-                <Navbar bg="dark" variant="dark">
-                    <Nav className="mr-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#history">History</Nav.Link>
-                        <Nav.Link href="#entertainment">Entertainment</Nav.Link>
-                        <Nav.Link href="#international affairs">International Affairs</Nav.Link>
-                        <Nav.Link href="#about">About</Nav.Link>
-                        <Nav.Link href="#contacts">Contacts</Nav.Link>
-                    </Nav>
-                </Navbar>
-
+                <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div className="container-fluid">
+    <a className="navbar-brand" href="#">Navbar</a>
+    <button
+      className="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i className="fas fa-bars"></i>
+    </button>
+    <div className="collapse navbar-collapse" id="navbarNav">
+      <ul className="navbar-nav">
+        <li className="nav-item">
+          <a className="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="#">Features</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="#">Pricing</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"
+            >Disabled</a
+          >
+        </li>
+      </ul>
+    </div>  
+    
+    <form className="d-flex input-group w-auto">
+      <input
+        type="search"
+        className="form-control"
+        placeholder="Type query"
+        aria-label="Search"
+      />
+      <button className="btn btn-outline-white text-white" type="button">Search</button>
+    </form>
+    </div>
+</nav>
 
                 <div>
                     <div className="row rw">

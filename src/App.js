@@ -13,7 +13,7 @@ export default class App extends Component {
             <Route path='/testing'>
               <Test/>
             </Route>
-            <Route path='/list'>
+            <Route path='/list' component={List}>
               <List/>
             </Route>
             <Route path='/details'>

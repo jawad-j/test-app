@@ -1,43 +1,8 @@
-// import react, {useEffect,useState} from "react";
-// //import Entry from "../../../../models/entryModels";
-// Entry=()=>{
-//     const [entry,setentry]=useState([{
-//         title:'',
-//         content:''
-//     }])
-//     useEffect(()=>{
-//         fetch("http://localhost:3001/entry").then(res=>{
-//                         if(res.ok){
-//                             return res.json()
-//                         }
-//                     }).then(jsonRes => setentry(jsonRes));
-//     })
-//     return(
-//         <>
-//         <h1>Blog's</h1>
-//         {entry.map(entry=>
-//             <div>
-//                 <h1>entry.title</h1>
-//                 <h2>entry.content</h2>
-//             </div>)}
-//         </>
-//     )
-// }
-// export default Entry;
-
-
-
-
-
-
-
-
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav'
 import "./style.css"
-//import Entry from '../../../../models/entryModels';
 export default class list extends Component {
     constructor(props) {
         super(props);
@@ -45,7 +10,8 @@ export default class list extends Component {
             title: '',
             content: '',
             image: '',
-            data: []
+            data: [],
+            jsonRes:false
         }
     }
     componentDidMount = () => {
@@ -54,8 +20,8 @@ export default class list extends Component {
                 return res.json()
             }
         }).then(jsonRes => {
-            this.setState({ data: jsonRes })
-            console.log(jsonRes)
+            this.setState({ data: jsonRes})
+            console.log("data",jsonRes)
         }
 
         );
@@ -79,13 +45,13 @@ export default class list extends Component {
                     <h1 class="hdr">Blog's</h1>
                     {data.map((d, index) => {
                         return (
-                            <div>
+                            <div key={index}>
                                 <div className="container">
                                     <div className="row">
                                         <div className="column">
                                             <a className="pstn" href="">{d.title}</a>
                                             <img
-                                                src="yoga.jpg"
+                                                src={d.image}
                                                 className="w-100 shadow-1-strong rounded mb-4"
                                                 alt=""
                                             />
