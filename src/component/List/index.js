@@ -2,174 +2,102 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav'
-import "./style.css"
-import { blogDetail } from '../constant';
+import "./style.css";
+import { Link } from 'react-router-dom';
+import NavBar from '../NavBar'
+import Footer from '../Footer';
 export default class list extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            title: '',
+            content: '',
+            image: '',
+            tags: '',
+            data: [],
+            jsonRes: false
+        }
+    }
+    componentDidMount = () => {
+        fetch("http://localhost:3001/entry").then(res => {
+            if (res.ok) {
+                return res.json()
+            }
+        }).then(jsonRes => {
+            this.setState({ data: jsonRes })
+            console.log("data", jsonRes)
+        }
+
+        );
+
+    }
     render() {
+        const { data } = this.state
         return (
             <>
-                <Navbar bg="dark" variant="dark">
-                    <Nav className="mr-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#history">History</Nav.Link>
-                        <Nav.Link href="#entertainment">Entertainment</Nav.Link>
-                        <Nav.Link href="#international affairs">International Affairs</Nav.Link>
-                        <Nav.Link href="#about">About</Nav.Link>
-                        <Nav.Link href="#contacts">Contacts</Nav.Link>
-                    </Nav>
-                </Navbar>
-     <div>{blogDetail.map((d,index)=>{
-         return(
-             <div>
-<h1 class="hdr">Blog's</h1>
-    <div className="container">
-    <div className="row">
-  <div className="col-lg-4 col-md-12 mb-4 mb-lg-0">
-    <figure><a className="pstn" href="">{d.tags}</a>
-    <img
-      src={d.img}
-      className="w-100 shadow-1-strong rounded mb-4"
-      alt=""
-    />
-    <figcaption>Many times, readers will get distracted</figcaption>
-    </figure>
-    </div>
-    </div>
-</div>
-             </div>
-         )
-     })}
-                    
-    
-</div>
-    {/* <figure><a className="pstn" href="">TAGS</a>
-    <img
-      src="https://mdbootstrap.com/img/Photos/Vertical/mountain1.jpg"
-      className="w-100 shadow-1-strong rounded mb-4"
-      alt=""
-    />
-    <figcaption>Many times, readers will get distracted</figcaption>
-    </figure>
-  </div>
-  <div className="col-lg-4 mb-4 mb-lg-0">
-  <figure><a className="pstn" href="">TAGS</a>
-      <img
-      src="https://mdbootstrap.com/img/Photos/Vertical/mountain2.jpg"
-      className="w-100 shadow-1-strong rounded mb-4"
-      alt=""
-    />
-    <figcaption>Many times, readers will get distracted</figcaption></figure>
-<figure><a className="pstn" href="">TAGS</a>
-    <img
-      src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg"
-      className="w-100 shadow-1-strong rounded mb-4"
-      alt=""
-    /><figcaption>Many times, readers will get distracted</figcaption></figure>
-  </div>
-
-  <div className="col-lg-4 mb-4 mb-lg-0">
-   <figure><a className="pstn" href="">TAGS</a>
-    <img
-      src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg"
-      className="w-100 shadow-1-strong rounded mb-4"
-      alt=""
-    /><figcaption>Many times, readers will get distracted</figcaption></figure>
-<figure><a className="pstn" href="">TAGS</a>
-    <img
-      src="https://mdbootstrap.com/img/Photos/Vertical/mountain3.jpg"
-      className="w-100 shadow-1-strong rounded mb-4"
-      alt=""
-    /><figcaption>Many times, readers will get distracted</figcaption></figure> */}
-
-
-
-
-
-
-{/* <div className="row">
- <div className="col-lg-4 col-md-12 mb-4">
-<figure>
-  <img src="http://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(58).jpg" class="img-fluid mb-4" alt=""/>
-  <figcaption>Hey</figcaption>
-  </figure>
-</div>
-<div className="col-lg-4 col-md-6 mb-4">
-<figure>
-  <img src="http://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(58).jpg" class="img-fluid mb-4" alt=""/>
-  <figcaption>Hey</figcaption>
-  </figure>
-<figure>
-  <img src="http://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(58).jpg" class="img-fluid mb-4" alt=""/>
-  <figcaption>Hey</figcaption>
-  </figure>
-</div>
-  </div> */}
- 
-<div>
-                <footer className="bg-dark text-center text-white">
-                    <section className="section">
-                        <div className="row">
-                            <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
-                                <h4>TAGS:</h4>
-
-                                <ul className="list-unstyled mb-0">
-                                    <li>
-                                        <a href="#!" className="text-white">Entertainment</a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" className="text-white">History</a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" className="text-white">International Affairs</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
-                                <h5>CONTACT'S:</h5>
-
-                                <ul className="list-unstyled mb-0">
-                                    <li>
-                                        <a href="#!" className="text-white">+923327491970</a>
-                                    </li>
-                                    <li>
-                                        <a href="jawad@ventechstudio.com" className="text-white">jawad@ventechstudio.com</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </section>
-                    <section className="subscribe">
-                        <form action="">
-                            <div className="row d-flex justify-content-center">
-                                <div className="col-auto">
-                                    <p className="pt-2">
-                                        <strong>Sign up for our newsletter</strong>
-                                    </p>
+                <NavBar />
+                <div className="listing">
+                    {/* <section className="container">
+                        <div className="site-content">
+                        <div className="post-content">
+                            <div className="post-image">
+                                <div>
+                                    <img src="yoga.jpg" className="img"></img>
                                 </div>
-                                <div className="col-md-5 col-12 mb-4 mb-md-0">
-                                    <div className="form-outline mb-4">
-                                        <input type="email" className="form-control" />
-                                        <label className="form-label" for="form5Example2">Email address</label>
+                                <div className="post-title">
+                                    <a href="#">Why should boy have fun? when women make india Alcohol loving country.</a>
+                                    <p>Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec nec commodo neque, et laoreet mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed convallis tristique turpis, nec varius erat consectetur sit amet. Nunc semper dictum urna tincidunt auctor. Vivamus aliquam sodales elit, eget pellentesque mi dignissim a. Nullam tincidunt odio nec risus finibus suscipit. Phasellus commodo, ex id pharetra pellentesque, purus elit pretium sapien, non posuere urna dui sit amet lorem. Proin ligula ante, tristique ultricies condimentum vel, tincidunt quis urna. Vestibulum posuere purus gravida posuere dictum. Proin viverra consequat enim quis ultricies. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed dignissim est quam, non vestibulum quam venenatis id. Suspendisse urna tortor, blandit ut elit eget, imperdiet venenatis felis. Nam et ligula scelerisque sem maximus lacinia.</p>
+                                    <button className="btn post-btn">Read More...</button>
+                                </div>
+
+                            </div>
+                            <hr></hr>
+                        </div>
+                        <aside className="sidebar">
+                            <h1>SideBar</h1>
+                        </aside>
+
+                        </div>
+                    </section> */}
+
+
+
+
+
+                    {data.map((d, index) => {
+                        return (
+                            <div className="container">
+                                <div className="row">
+                                    <div className="col-12">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <a className="pstn">{d.tags}</a>
+                                                    <td className="w-25">
+                                                        <Link
+                                                            to={{
+                                                                pathname: `/details/${d._id}`,
+                                                                query: { id: d.title },
+                                                            }}
+                                                        >
+                                                            <img className="img-fluid img-thumbnail" src={d.image} alt="blog" />
+                                                            <figcaption className="txt">{d.title}</figcaption>
+                                                        </Link>
+                                                    </td>
+                                                    <td className="container">{d.content}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
                                     </div>
                                 </div>
-                                <div className="col-auto">
-                                    <button type="submit" className="btn btn-outline-light mb-4">
-                                        Subscribe
-            </button>
-                                </div>
                             </div>
-                        </form>
-                    </section>
-
-
-                    <div class="text-center p-3">
-                        © 2021 Copyright:
-    <a class="text-white">jawad@ventechstudio.com</a>
-                    </div>
-                </footer>
-
-</div>
-
+                        )
+                    })}
+                </div>
+                <div className="foot">
+                <Footer/>
+                </div>
             </>
         )
     }
