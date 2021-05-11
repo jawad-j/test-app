@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav'
-import "./style.css"
-import axios from 'axios'
+import "./style.css";
+import axios from 'axios';
+import Footer from '../Footer'
 import {
     BrowserRouter as Router,
     Switch,
     Route,
     Link
   } from "react-router-dom";
-
+import NavBar from '../NavBar';
 export default class test extends Component {
     constructor(props){
         super(props);
@@ -18,7 +19,11 @@ export default class test extends Component {
             title:'',
             content:'',
             image:'',
+            tags:''
         }
+    }
+    handleTags=(t)=>{
+        this.setState({tags: t.target.value})
     }
     handleTitle=(e)=>{
         this.setState({title: e.target.value})
@@ -40,7 +45,8 @@ export default class test extends Component {
         const newBlog = {
           title: this.state.title,
           content: this.state.content,
-          image: this.state.image
+          image: this.state.image,
+          tags: this.state.tags
         }
         console.log(newBlog)
         console.log(this.state.image)
@@ -50,18 +56,9 @@ export default class test extends Component {
     render() {
         return (
             <>
-                <Navbar bg="dark" variant="dark">
-                    <Nav className="mr-auto">
-                        <Nav.Link >
-                            <Link to="/list">Home</Link></Nav.Link>
-                        <Nav.Link href="#history">History</Nav.Link>
-                        <Nav.Link href="#entertainment">Entertainment</Nav.Link>
-                        <Nav.Link href="#international affairs">International Affairs</Nav.Link>
-                        <Nav.Link href="#about">About</Nav.Link>
-                        <Nav.Link href="#contacts">Contacts</Nav.Link>
-                    </Nav>
-                </Navbar>
-                <div className="header">
+            <NavBar/>
+            
+               <div className="header">
                     <h1>Create Blog</h1>
                     <h3>Enter Details</h3>
                 </div>
@@ -78,7 +75,7 @@ export default class test extends Component {
                             </div>
                             <div className="form-group">
                                 <label htmlFor="usr">Tags:</label>
-                                <select className="form-control">
+                                <select className="form-control" onChange={(t)=>this.handleTags(t)}>
                                     <option value="History">History</option>
                                     <option value="Entertainments">Entertainments</option>
                                     <option value="International Affairs">International Affairs</option>
@@ -95,71 +92,9 @@ export default class test extends Component {
                         </div>
                     </div>
                 </div>
-
-                <footer className="bg-dark text-center text-white">
-                    <div className="fix">
-                    <section className="section">
-                        <div className="row">
-                            <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
-                                <h4>TAGS:</h4>
-
-                                <ul className="list-unstyled mb-0">
-                                    <li>
-                                        <a href="#!" className="text-white">Entertainment</a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" className="text-white">History</a>
-                                    </li>
-                                    <li>
-                                        <a href="#!" className="text-white">International Affairs</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
-                                <h5>CONTACT'S:</h5>
-
-                                <ul className="list-unstyled mb-0">
-                                    <li>
-                                        <a href="#!" className="text-white">+923327491970</a>
-                                    </li>
-                                    <li>
-                                        <a href="jawad@ventechstudio.com" className="text-white">jawad@ventechstudio.com</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </section>
-                    <section className="subscribe">
-                        <form action="">
-                            <div className="row d-flex justify-content-center">
-                                <div className="col-auto">
-                                    <p className="pt-2">
-                                        <strong>Sign up for our newsletter</strong>
-                                    </p>
-                                </div>
-                                <div className="col-md-5 col-12 mb-4 mb-md-0">
-                                    <div className="form-outline mb-4">
-                                        <input type="email" className="form-control" />
-                                        <label className="form-label" for="form5Example2">Email address</label>
-                                    </div>
-                                </div>
-                                <div className="col-auto">
-                                    <button type="submit" className="btn btn-outline-light mb-4">
-                                        Subscribe
-            </button>
-                                </div>
-                            </div>
-                        </form>
-                    </section>
-
-
-                    <div class="text-center p-3">
-                        © 2021 Copyright:
-    <a class="text-white">jawad@ventechstudio.com</a>
-    </div>
-                    </div>
-                </footer>
-
+                <div className="foot">
+                <Footer/>
+                </div>
 
 
             </>
